@@ -1,11 +1,59 @@
 from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
+from nonebot.permission import *
 import urllib.request
 import urllib.parse
 import json
 import random
-BLACK_LIST = ['1292719501']
 
+AVAILABLE = True
+BLACK_LIST = []
+
+
+@on_command('translate启用', permission=SUPERUSER)
+async def translateSetUp(session: CommandSession):
+    global AVAILABLE
+    AVAILABLE = True
+    await session.send('translate已启用！让你们看看507bot高性能的翻译能力')
+
+@on_command('translate禁用', permission=SUPERUSER)
+async def translateShutDown(session: CommandSession):
+    global AVAILABLE
+    AVAILABLE = False
+    await session.send('translate禁用了...都怪群友们让507bot翻译怪东西')
+
+@on_command('translate黑名单', permission=SUPERUSER)
+async def translateBlackListPush(session: CommandSession):
+    uid = str(session.state.get('message') or session.current_arg)
+    if uid == '鸭子哥':
+        uid = '1292719501'
+    global BLACK_LIST
+    if uid in BLACK_LIST:
+        await session.send('这个人已经在translate黑名单里了')
+    elif '1419626179' in uid:
+        await session.send('我才不会把507加到黑名单里呢！')
+    else:
+        BLACK_LIST.append(uid)
+        await session.send(uid+'的translate功能已禁用')
+
+@on_command('translate出狱', permission=SUPERUSER)
+async def translateBlackListPop(session: CommandSession):
+    uid = str(session.state.get('message') or session.current_arg)
+    if uid == '鸭子哥':
+        uid = '1292719501'
+    global BLACK_LIST
+    if '1419626179' in uid:
+        await session.send('507怎么可能在黑名单里呢！')
+    elif uid not in BLACK_LIST:
+        await session.send('这个人不在translate黑名单里哦')
+    else:
+        for i in range(len(BLACK_LIST)):
+            if uid in BLACK_LIST[i] or BLACK_LIST[i] in uid:
+                del BLACK_LIST[i]
+                break
+        await session.send(uid+'的translate功能已启用')
+
+        
 def tslt(contest):
     url='http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule'
     head={}
@@ -37,6 +85,9 @@ async def translate(session: CommandSession):
     global BLACK_LIST
     if qqnum in BLACK_LIST:
         return
+    global AVAILABLE
+    if not AVAILABLE:
+        return
     content = str(session.current_arg_text.strip())
     content.replace(':','')
     content.replace('：','')
@@ -49,7 +100,7 @@ async def translate(session: CommandSession):
         await session.send(reply[random.randint(0,3)])
         return
     res = tslt(content)
-    if "牛牛" in res or "牛子" in res or "女体" in res or "射精" in res or "精液" in res:
+    if "牛牛" in res or "牛子" in res or "女体" in res or "射精" in res or "精液" in res or "阴经" in res or "阴道" in res:
         reply = ["不要让507bot翻译奇怪的东西呀", "如果你再让507bot翻译奇怪东西的话，507bot可要生气了",\
                  "你要翻译的是什么怪东西","净网bot507要出警啦！"]
         await session.send(reply[random.randint(0,3)])
