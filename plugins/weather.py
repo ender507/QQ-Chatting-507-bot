@@ -74,6 +74,9 @@ async def weather(session: CommandSession):
     else:
         province = city[0]
         city = city[1]
+    if '台' in province:
+        await session.send("天气不知道，但是大的要来了")
+        return
     # 查询省份代码
     flag = True
     for each in PROVINCE.keys():
@@ -113,4 +116,6 @@ async def weather(session: CommandSession):
     rain = html['weather']['rain']
     await session.send(province+city+'的实时天气状况:\r\n'+'气温：'+str(temp)+'摄氏度\r\n'+'天气：'+str(wtr)\
                        +'\r\n雨水等级：'+str(rain))
+    if str(wtr) == '晴':
+        await session.send('[CQ:image,file=cc356f2a4e9f19e2ce62b977c67c3f12.image]')
 

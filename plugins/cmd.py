@@ -65,7 +65,19 @@ async def shakou(session: CommandSession):
         return
     await session.send('[CQ:image,file=b600be26d6aa1cb557135bbed16ed1bf.image]')
 
-@on_command('沙口')
+@on_command('啊哈')
+async def aha(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('[CQ:image,file=b44767caa8d4aa597efc5a9e68648739.image]')
+
+@on_command('shakou')
 async def shakou(session: CommandSession):
     global SHUT_UP
     global AVAILABLE
@@ -101,7 +113,7 @@ async def info(session: CommandSession):
     if qqnum in BLACK_LIST:
         return
     await session.send('项目名称：507bot\r\n出生日期：2021.2.24\r\n人设：呆呆的粉毛萝莉\r\n\
-版本号：v0.4\r\n当前模块数：9\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
+版本号：v0.5\r\n当前模块数：10\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
 
 @on_command('说')
 async def say(session: CommandSession):
@@ -214,16 +226,17 @@ async def bot(session: CommandSession):
         FIRST_BOOT = False
         return
     mes = '我是507bot！我的常用指令：\r\n\
-    【roll】接数字，roll点\r\n\
-    【天气】接省份和城市，查询实时天气状况\r\n\
-    【歌词】接曲名，查询歌词（因易刷屏暂未开放）\r\n\
-    【翻译】中译英或其他语种译中\r\n\
-    【运势】接星座，依据星座查看当日运势\r\n\
-    【学习】接群友发送内容和bot回复内容，让bot学习新知识\r\n\
-    【对联】接上联，bot回复下联\r\n\
-    【bot管理相关（需要权限）】开启/移除/查看功能模块、终止、重启（未实装）、黑名单\r\n\
-    【其他】聊天回复和彩蛋\r\n\
-    需要向507反馈问题请使用【学习】功能，让bot记录反馈内容'
+【roll】接数字，roll点\r\n\
+【天气】接省份和城市，查询实时天气状况\r\n\
+【歌词】接曲名，查询歌词（因易刷屏暂未开放）\r\n\
+【翻译】中译英或其他语种译中\r\n\
+【运势】接星座，依据星座查看当日运势\r\n\
+【学习】接群友发送内容和bot回复内容，让bot学习新知识\r\n\
+【对联】接上联，bot回复下联\r\n\
+【明日方舟抽卡】抽卡模拟器\r\n\
+【bot管理相关（需要权限）】开启/移除功能模块、终止、黑名单\r\n\
+【其他】聊天回复和彩蛋\r\n\
+需要向507反馈问题请使用【学习】功能，让bot记录反馈内容'
     await session.send(mes)
 
 @on_command('climb')
@@ -315,6 +328,42 @@ async def climb(session: CommandSession):
         return
     await session.send('mc群原来真有人玩mc啊')
 
+@on_command('rut')
+async def rut(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    await session.send('他不是一直都在发情吗？')
+
+@on_command('lidaohai')
+async def shakou(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    await session.send('里道骸来点○图')
+
+@on_command('lly')
+async def lly(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    await session.send('总觉得空气中弥漫着沙口的气息...')
+
 @on_command('好耶')
 async def good(session: CommandSession):
     qqnum=str(session.ctx['user_id'])
@@ -359,6 +408,10 @@ async def _(session: NLPSession):
     # 前两个参数必填，分别表示置信度和意图命令名
     return IntentCommand(100.0, 'climb')
 
+@on_natural_language(keywords={'507bot'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, '507bot')
+
 @on_natural_language(keywords={'507我爱你', '507bot我爱你','507 我爱你','507bot 我爱你',
                                '507我喜欢你', '507bot我喜欢你','507 我喜欢你','507bot 我喜欢你'})
 async def _(session: NLPSession):
@@ -386,6 +439,9 @@ async def _(session: NLPSession):
 
 @on_natural_language(keywords={'雾宝','雾妹'})
 async def _(session: NLPSession):
+    stripped_msg = session.msg_text.strip()
+    if "雾宝来啦" in str(stripped_msg):
+        return IntentCommand(100.0, 'block')
     return IntentCommand(100.0, 'wubao')
 
 @on_natural_language(keywords={'hiiro'})
@@ -419,3 +475,15 @@ async def _(session: NLPSession):
 @on_natural_language(keywords={'mua'})
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'mua')
+
+@on_natural_language(keywords={'又发情'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'rut')
+
+@on_natural_language(keywords={'里道骸','ldh'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'lidaohai')
+
+@on_natural_language(keywords={'lly'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'lly')

@@ -96,4 +96,7 @@ async def lyric(session: CommandSession):
             continue
         elif flag is False:
             ans += content[i]
+    if len(ans)>800:
+        ans = ans[:800]
+        await session.send('歌词太长了')
     await session.send(ans)
