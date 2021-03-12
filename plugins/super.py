@@ -18,6 +18,9 @@ async def explosion(session: CommandSession):
 
 @on_command('tashikani', permission=SUPERUSER)
 async def tashikani(session: CommandSession):
+    uid = str(session.state.get('message') or session.current_arg)
+    if '1419626179' not in uid:
+        return
     await session.send('就是就是！')
 
 

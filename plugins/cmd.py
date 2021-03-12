@@ -10,6 +10,12 @@ AVAILABLE = True
 
 BLACK_LIST = []
 
+@on_command('test', permission=SUPERUSER)
+async def test(session: CommandSession):
+    global AVAILABLE
+    AVAILABLE = True
+    await session.send('')
+
 @on_command('cmd启用', permission=SUPERUSER)
 async def cmdSetUp(session: CommandSession):
     global AVAILABLE
@@ -54,7 +60,10 @@ async def cmdBlackListPop(session: CommandSession):
         await session.send(uid+'的cmd功能已启用')
 
 @on_command('憨憨bot')
-async def shakou(session: CommandSession):
+async def hhbot(session: CommandSession):
+
+    return
+    
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -64,6 +73,93 @@ async def shakou(session: CommandSession):
     if qqnum in BLACK_LIST:
         return
     await session.send('[CQ:image,file=b600be26d6aa1cb557135bbed16ed1bf.image]')
+
+@on_command('lulu语录')
+async def _(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    mes = ['我知道没有单推，但是有点悲伤',
+           '我爱你，想抱紧你\r\n你什么时候才能紧紧的拥抱我呢',
+           '为什么会爱上不存在的二次元女人？'
+           '你没有锁骨','为什么最近大家一直在击剑呢？这是中国文化吗',
+           '麻衣，为什么一直抱着桃树不放开？',
+           '我也喜欢lol弱的麻衣，不需要改变自己',
+           '你先刷牙再说','你先dt毕业吧',
+           '变态冰糖也可爱','帅哥哥 我想要兰博基尼❤\r\n谢谢你❤',
+           '对不起，我是天才','吐了口臭不行你先爬',
+           '久违地吐了','///////爬//////',
+           '用手机到底能做什么？只能和沙雕网友说话',
+           '有一说一，你的胸部确实比我大']
+    await session.send(mes[random.randint(0,len(mes)-1)])
+
+
+@on_command('白学')
+async def _(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('白学家能不能爬啊')
+
+@on_command('去学习')
+async def _(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('这就是国家栋梁吧')
+
+@on_command('走')
+async def shakou(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('当舔狗去了')
+
+@on_command('走，当舔狗去了')
+async def shakou(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('发错了')
+
+@on_command('lajipa', aliases=('laji爬', 'lajibot爬'))
+async def lajipa(session: CommandSession):
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    #await session.send('[CQ:image,file=eba8878b25ceee238d0573cf7dfdfc66.image]')
+    #await session.send('[CQ:image,file=59bc3f42430125462ec6b43e5d65304d.image]')
+    await session.send('[CQ:image,file=127289e6641331fb0b47ff9dc83cba76.image]')
 
 @on_command('啊哈')
 async def aha(session: CommandSession):
@@ -112,8 +208,8 @@ async def info(session: CommandSession):
     global BLACK_LIST
     if qqnum in BLACK_LIST:
         return
-    await session.send('项目名称：507bot\r\n出生日期：2021.2.24\r\n人设：呆呆的粉毛萝莉\r\n\
-版本号：v0.5\r\n当前模块数：10\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
+    await session.send('项目名称：507bot\r\n出生日期：2021.2.24\r\n\
+版本号：v0.6\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
 
 @on_command('说')
 async def say(session: CommandSession):
@@ -286,7 +382,7 @@ async def ero(session: CommandSession):
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
         return
-    await session.send('别怕管理，私发我')
+    await session.send('[CQ:image,file=1f9f3c6a2d137a55b69e120d59cf56a8.image]')
 
 @on_command('block')
 async def block(session: CommandSession):
@@ -304,7 +400,7 @@ async def chaofeng(session: CommandSession):
         return
     await session.send('我翻译得出来！我厉害吧')
 
-@on_command('lulu')
+@on_command('_lulu')
 async def lulu(session: CommandSession):
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
@@ -317,7 +413,7 @@ async def lulu(session: CommandSession):
     await session.send('るる是谁？有507bot可爱吗')
 
 @on_command('mc')
-async def climb(session: CommandSession):
+async def _(session: CommandSession):
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -327,6 +423,18 @@ async def climb(session: CommandSession):
     if SHUT_UP or not AVAILABLE:
         return
     await session.send('mc群原来真有人玩mc啊')
+
+@on_command('laji爬小助手')
+async def _(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    await session.send('【laji爬小助手】大家好，我是本群laji爬小助手\r\n希望看到这条消息的群友和我一起让laji爬')
 
 @on_command('rut')
 async def rut(session: CommandSession):
@@ -374,7 +482,7 @@ async def good(session: CommandSession):
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
         return
-    await session.send('大家好才是真的好')
+    await session.send('[CQ:image,file=f2275eb773f4521d8df72937526d980e.image]')
 
 @on_command('love')
 async def love(session: CommandSession):
@@ -425,9 +533,11 @@ async def _(session: NLPSession):
     return IntentCommand(100.0, 'ero')
 
 
-@on_natural_language(keywords={'lulu','るる'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'lulu')
+#@on_natural_language(keywords={'lulu','るる'})
+#async def _(session: NLPSession):
+#    if random.randint(0,2) != 0:
+#        return IntentCommand(100.0, 'block')
+#    return IntentCommand(100.0, '_lulu')
 
 @on_natural_language(keywords={'mc','minecraft'})
 async def _(session: NLPSession):
@@ -442,10 +552,15 @@ async def _(session: NLPSession):
     stripped_msg = session.msg_text.strip()
     if "雾宝来啦" in str(stripped_msg):
         return IntentCommand(100.0, 'block')
+    if random.randint(0,2) != 0:
+        return IntentCommand(100.0, 'block')
     return IntentCommand(100.0, 'wubao')
 
 @on_natural_language(keywords={'hiiro'})
 async def _(session: NLPSession):
+    stripped_msg = session.msg_text.strip()
+    if "来点hiiro" in str(stripped_msg):
+        return IntentCommand(100.0, 'block')
     return IntentCommand(100.0, 'hiiro')
 
 @on_natural_language(keywords={'闭嘴'})
@@ -487,3 +602,19 @@ async def _(session: NLPSession):
 @on_natural_language(keywords={'lly'})
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'lly')
+
+@on_natural_language(keywords={'现在是'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'laji爬小助手')
+
+@on_natural_language(keywords={'lulu语录','るる语录'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'lulu语录')
+
+@on_natural_language(keywords={'去学习'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, '去学习')
+
+@on_natural_language(keywords={'和纱','北原','东马','雪菜','白学'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, '白学')
