@@ -3,12 +3,26 @@ from nonebot import on_natural_language, NLPSession, IntentCommand
 from nonebot.permission import *
 from jieba import posseg
 import random
+import time
  
 FIRST_BOOT = True
 SHUT_UP = False
 AVAILABLE = True
 
 BLACK_LIST = []
+
+TIMETICK = None
+# 防止和其他机器人复读死循环
+def replyBreaker():
+    global TIMETICK
+    if TIMETICK is None:
+        TIMETICK = time.time()
+        return True
+    tmp = time.time()
+    if tmp - TIMETICK >=3:
+        TIMETICK = tmp
+        return False
+    return True
 
 @on_command('test', permission=SUPERUSER)
 async def test(session: CommandSession):
@@ -61,9 +75,8 @@ async def cmdBlackListPop(session: CommandSession):
 
 @on_command('憨憨bot')
 async def hhbot(session: CommandSession):
-
-    return
-    
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -101,6 +114,8 @@ async def _(session: CommandSession):
 
 @on_command('白学')
 async def _(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -113,6 +128,8 @@ async def _(session: CommandSession):
 
 @on_command('去学习')
 async def _(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -125,6 +142,8 @@ async def _(session: CommandSession):
 
 @on_command('走')
 async def shakou(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -137,6 +156,8 @@ async def shakou(session: CommandSession):
 
 @on_command('走，当舔狗去了')
 async def shakou(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -149,6 +170,8 @@ async def shakou(session: CommandSession):
 
 @on_command('lajipa', aliases=('laji爬', 'lajibot爬'))
 async def lajipa(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -163,6 +186,8 @@ async def lajipa(session: CommandSession):
 
 @on_command('啊哈')
 async def aha(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -175,6 +200,8 @@ async def aha(session: CommandSession):
 
 @on_command('shakou')
 async def shakou(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -187,6 +214,8 @@ async def shakou(session: CommandSession):
 
 @on_command('差不多得了')
 async def chabuduodele(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -200,6 +229,8 @@ async def chabuduodele(session: CommandSession):
     
 @on_command('基本信息')
 async def info(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -209,9 +240,9 @@ async def info(session: CommandSession):
     if qqnum in BLACK_LIST:
         return
     await session.send('项目名称：507bot\r\n出生日期：2021.2.24\r\n\
-版本号：v0.6\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
+版本号：v0.7\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
 
-@on_command('说')
+@on_command('说', permission=SUPERUSER)
 async def say(session: CommandSession):
     global SHUT_UP
     global AVAILABLE
@@ -239,6 +270,8 @@ async def shutup(session: CommandSession):
 
 @on_command('你好')
 async def hello(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -254,6 +287,8 @@ async def hello(session: CommandSession):
 
 @on_command('mua')
 async def mua(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -267,6 +302,8 @@ async def mua(session: CommandSession):
     
 @on_command('touchhead')
 async def touchhead(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -308,6 +345,8 @@ async def noshutup(session: CommandSession):
 
 @on_command('507bot')
 async def bot(session: CommandSession):
+    if replyBreaker():
+        return
     global SHUT_UP
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
@@ -337,6 +376,8 @@ async def bot(session: CommandSession):
 
 @on_command('climb')
 async def climb(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -349,6 +390,8 @@ async def climb(session: CommandSession):
 
 @on_command('hiiro')
 async def hiiro(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -361,6 +404,8 @@ async def hiiro(session: CommandSession):
 
 @on_command('wubao')
 async def wubao(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -374,6 +419,8 @@ async def wubao(session: CommandSession):
     
 @on_command('ero')
 async def ero(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -390,6 +437,8 @@ async def block(session: CommandSession):
     
 @on_command('chaofeng')
 async def chaofeng(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -402,6 +451,8 @@ async def chaofeng(session: CommandSession):
 
 @on_command('_lulu')
 async def lulu(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -412,20 +463,11 @@ async def lulu(session: CommandSession):
         return
     await session.send('るる是谁？有507bot可爱吗')
 
-@on_command('mc')
-async def _(session: CommandSession):
-    qqnum=str(session.ctx['user_id'])
-    global BLACK_LIST
-    if qqnum in BLACK_LIST:
-        return
-    global SHUT_UP
-    global AVAILABLE
-    if SHUT_UP or not AVAILABLE:
-        return
-    await session.send('mc群原来真有人玩mc啊')
 
 @on_command('laji爬小助手')
 async def _(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -438,6 +480,8 @@ async def _(session: CommandSession):
 
 @on_command('rut')
 async def rut(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -450,6 +494,8 @@ async def rut(session: CommandSession):
 
 @on_command('lidaohai')
 async def shakou(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -462,6 +508,8 @@ async def shakou(session: CommandSession):
 
 @on_command('lly')
 async def lly(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -474,6 +522,8 @@ async def lly(session: CommandSession):
 
 @on_command('好耶')
 async def good(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -486,6 +536,8 @@ async def good(session: CommandSession):
 
 @on_command('love')
 async def love(session: CommandSession):
+    if replyBreaker():
+        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -539,9 +591,6 @@ async def _(session: NLPSession):
 #        return IntentCommand(100.0, 'block')
 #    return IntentCommand(100.0, '_lulu')
 
-@on_natural_language(keywords={'mc','minecraft'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'mc')
 
 @on_natural_language(keywords={'呀，这是火星语吧'})
 async def _(session: NLPSession):
