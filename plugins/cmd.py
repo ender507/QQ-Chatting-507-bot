@@ -17,7 +17,7 @@ def replyBreaker():
     global TIMETICK
     if TIMETICK is None:
         TIMETICK = time.time()
-        return True
+        return False
     tmp = time.time()
     if tmp - TIMETICK >=3:
         TIMETICK = tmp
@@ -87,6 +87,22 @@ async def hhbot(session: CommandSession):
         return
     await session.send('[CQ:image,file=b600be26d6aa1cb557135bbed16ed1bf.image]')
 
+
+@on_command('晚安')
+async def hhbot(session: CommandSession):
+    if replyBreaker():
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    await session.send('晚安❤')
+
+    
 @on_command('lulu语录')
 async def _(session: CommandSession):
     global SHUT_UP
@@ -182,7 +198,10 @@ async def lajipa(session: CommandSession):
         return
     #await session.send('[CQ:image,file=eba8878b25ceee238d0573cf7dfdfc66.image]')
     #await session.send('[CQ:image,file=59bc3f42430125462ec6b43e5d65304d.image]')
-    await session.send('[CQ:image,file=127289e6641331fb0b47ff9dc83cba76.image]')
+    #await session.send('[CQ:image,file=127289e6641331fb0b47ff9dc83cba76.image]')
+    #await session.send('[CQ:image,file=12465c7db97145228946b25a59d7ebf0.image]')
+    await session.send('[CQ:image,file=f13cfe973df76c8efd14b9870c0c62a5.image]')
+    
 
 @on_command('啊哈')
 async def aha(session: CommandSession):
@@ -240,21 +259,10 @@ async def info(session: CommandSession):
     if qqnum in BLACK_LIST:
         return
     await session.send('项目名称：507bot\r\n出生日期：2021.2.24\r\n\
-版本号：v0.7\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
+版本号：v0.8\r\n项目地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n活跃群聊：2')
 
-@on_command('说', permission=SUPERUSER)
-async def say(session: CommandSession):
-    global SHUT_UP
-    global AVAILABLE
-    if SHUT_UP or not AVAILABLE:
-        return
-    qqnum=str(session.ctx['user_id'])
-    global BLACK_LIST
-    if qqnum in BLACK_LIST:
-        return
-    await session.send(session.state.get('message') or session.current_arg)
 
-@on_command('shutup')
+@on_command('闭嘴')
 async def shutup(session: CommandSession):
     global AVAILABLE
     if not AVAILABLE:
@@ -284,6 +292,23 @@ async def hello(session: CommandSession):
         await session.send('Hello World!')
     else:
         await session.send('你好呀')
+
+
+@on_command('今天吃啥方便面')
+async def hello(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    res = ['红烧牛肉','老坛酸菜','红油爆椒牛肉','鲜虾鱼板','香菇炖鸡',
+           '雪笋肉丝','泡椒牛肉','咖喱海鲜','香浓叉烧','猪骨浓汤']
+    await session.send(res[random.randint(0,len(res)-1)])
+    
+
 
 @on_command('mua')
 async def mua(session: CommandSession):
@@ -361,17 +386,27 @@ async def bot(session: CommandSession):
         FIRST_BOOT = False
         return
     mes = '我是507bot！我的常用指令：\r\n\
-【roll】接数字，roll点\r\n\
-【天气】接省份和城市，查询实时天气状况\r\n\
-【歌词】接曲名，查询歌词（因易刷屏暂未开放）\r\n\
-【翻译】中译英或其他语种译中\r\n\
-【运势】接星座，依据星座查看当日运势\r\n\
-【学习】接群友发送内容和bot回复内容，让bot学习新知识\r\n\
-【对联】接上联，bot回复下联\r\n\
-【明日方舟抽卡】抽卡模拟器\r\n\
-【bot管理相关（需要权限）】开启/移除功能模块、终止、黑名单\r\n\
+# 通用指令\r\n\
+【roll】如"roll 6"\r\n\
+【天气】如"天气 上海 浦东"、"天气 广东 番禺"\r\n\
+【歌词】如"歌词 生日快乐"\r\n\
+【翻译】如"翻译 hello"\r\n\
+【运势】如"运势 水瓶座"\r\n\
+【学习】"学习 群友发送内容 bot回复内容"\r\n\
+【对联】如"对联 一去二三里"\r\n\
+【明日方舟抽卡】抽卡模拟器（卡池更新至画中人）\r\n\
+【抽象】如"抽象 爬"\r\n\
+【百度】如"百度 今天晚上吃什么"\r\n\
 【其他】聊天回复和彩蛋\r\n\
-需要向507反馈问题请使用【学习】功能，让bot记录反馈内容'
+# lu群专属\r\n\
+【lulu语录】\r\n\
+【来点怪歌】【来点鬼歌】\r\n\
+【来点怪叫】【来点鬼叫】\r\n\
+# 管理员权限\r\n\
+【启用/禁用】开启/移除模块\r\n\
+【自爆】\r\n【黑名单】接qq号\r\n\
+【是不是】\r\n【说】复读，支持字符串转图片/语音/视频\
+'
     await session.send(mes)
 
 @on_command('climb')
@@ -429,7 +464,29 @@ async def ero(session: CommandSession):
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
         return
-    await session.send('[CQ:image,file=1f9f3c6a2d137a55b69e120d59cf56a8.image]')
+    mes = ['[CQ:image,file=1f9f3c6a2d137a55b69e120d59cf56a8.image]',
+           '[CQ:image,file=a175367a819da572887e6ae198b9e26e.image]',
+           '[CQ:image,file=bc89f2ff230b116e4b2b36222436b889.image]']
+    await session.send(mes[random.randint(0,len(mes)-1)])
+
+@on_command('nijigen')
+async def _(session: CommandSession):
+    if replyBreaker():
+        return
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global SHUT_UP
+    global AVAILABLE
+    if SHUT_UP or not AVAILABLE:
+        return
+    mes = ['[CQ:image,file=de71b50dda7c599a396580a61a172157.image]',
+           '[CQ:image,file=38d09555fc3b1957f274e8eee3e08b42.image]',
+           '[CQ:image,file=3e61b81bd7b95934d4fd2daf01b1ec73.image]',
+           '[CQ:image,file=0526981a0710a622416b4e40355a64e9.image]',
+           '[CQ:image,file=8b24d6b2e882f8cd876488a65b101475.image]']
+    await session.send(mes[random.randint(0,len(mes)-1)])
 
 @on_command('block')
 async def block(session: CommandSession):
@@ -466,8 +523,6 @@ async def lulu(session: CommandSession):
 
 @on_command('laji爬小助手')
 async def _(session: CommandSession):
-    if replyBreaker():
-        return
     qqnum=str(session.ctx['user_id'])
     global BLACK_LIST
     if qqnum in BLACK_LIST:
@@ -532,7 +587,11 @@ async def good(session: CommandSession):
     global AVAILABLE
     if SHUT_UP or not AVAILABLE:
         return
-    await session.send('[CQ:image,file=f2275eb773f4521d8df72937526d980e.image]')
+    mes = ['[CQ:image,file=f2275eb773f4521d8df72937526d980e.image]',
+           '[CQ:image,file=5fd4239c09d03a9b20ab926dc5473adf.image]',
+           '[CQ:image,file=21c8c55ec019c29814745a720f404827.image]',
+           '[CQ:image,file=df646dbbe5d0e2db07d11017fb4e78be.image]']
+    await session.send(mes[random.randint(0,len(mes)-1)])
 
 @on_command('love')
 async def love(session: CommandSession):
@@ -570,6 +629,9 @@ async def _(session: NLPSession):
 
 @on_natural_language(keywords={'507bot'})
 async def _(session: NLPSession):
+    stripped_msg = session.msg_text.strip()
+    if '爬' in str(stripped_msg) or '爪巴' in str(stripped_msg):
+        return IntentCommand(100.0, 'climb')
     return IntentCommand(100.0, '507bot')
 
 @on_natural_language(keywords={'507我爱你', '507bot我爱你','507 我爱你','507bot 我爱你',
@@ -612,10 +674,6 @@ async def _(session: NLPSession):
         return IntentCommand(100.0, 'block')
     return IntentCommand(100.0, 'hiiro')
 
-@on_natural_language(keywords={'闭嘴'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'shutup')
-
 @on_natural_language(keywords={'回来吧'})
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'noshutup')
@@ -624,9 +682,9 @@ async def _(session: NLPSession):
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'saysomething')
 
-@on_natural_language(keywords={'沙口'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'shakou')
+#@on_natural_language(keywords={'沙口'})
+#async def _(session: NLPSession):
+#    return IntentCommand(100.0, 'shakou')
 
 @on_natural_language(keywords={'差不多得了'})
 async def _(session: NLPSession):
@@ -652,9 +710,9 @@ async def _(session: NLPSession):
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'lly')
 
-@on_natural_language(keywords={'现在是'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'laji爬小助手')
+#@on_natural_language(keywords={'现在是'})
+#async def _(session: NLPSession):
+#    return IntentCommand(100.0, 'laji爬小助手')
 
 @on_natural_language(keywords={'lulu语录','るる语录'})
 async def _(session: NLPSession):
@@ -667,3 +725,7 @@ async def _(session: NLPSession):
 @on_natural_language(keywords={'和纱','北原','东马','雪菜','白学'})
 async def _(session: NLPSession):
     return IntentCommand(100.0, '白学')
+
+@on_natural_language(keywords={'二次元','二刺猿','二刺螈','二次猿'})
+async def _(session: NLPSession):
+    return IntentCommand(100.0, 'nijigen')

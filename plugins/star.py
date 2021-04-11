@@ -1,6 +1,7 @@
 from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
 from nonebot.permission import *
+from bs4 import BeautifulSoup
 import urllib.request
 import urllib.parse
 import json
@@ -68,19 +69,29 @@ async def luck(session: CommandSession):
         return
     st = session.state.get('message') or session.current_arg
     if st == "":
-        return 
+        return
+    if st[-1]!= '座':
+        st += '座'
     if st not in star.keys():
        await session.send('没有'+st+'这个星座哦！')
     localtime = time.localtime(time.time())
     year = str(localtime.tm_year)
     mon = str(localtime.tm_mon)
     day = str(localtime.tm_mday)
-    url = "https://app.data.qq.com/?umod=astro"+\
-    "&act=astro&jsonp=1&func=TodatTpl&t=3&a="+str(star[st])+"&y=2015&m="+mon+"&d="+day
+    url = "http://www.xzw.com/fortune/" + star[st] + "/"
     response = urllib.request.Request(url)
     response = urllib.request.urlopen(response)
-    html=response.read().decode('unicode_escape')
-    html = html[9:-2].replace('\r\n','').replace('\n','')
-    res = year+'.'+mon+'.'+day+st+"的运势:\n"
-    res = res + json.loads(html)["fortune"][0]["content"]
-    await session.send(res)
+    html=response.read().decode('utf-8')
+    soup = BeautifulSoup(html)
+    html2 = soup.find('div', class_='c_cont')
+    html2 = str(html2)
+    soup = BeautifulSoup(html2)
+    text = ""
+    text = year+'.'+mon+'.'+day+st+"的运势:\r\n"
+    text = year+'.'+mon+'.'+day+st+"的运势:\r\n"
+    text = text + '【整体运势】' + str(soup.find_all('span')[0])[6:-27] + '\r\n'
+    text = text + '【爱情运势】' + str(soup.find_all('span')[1])[6:-7] + '\r\n'
+    text = text + '【事业学业】' + str(soup.find_all('span')[2])[6:-7] + '\r\n'
+    text = text + '【财富运势】' + str(soup.find_all('span')[3])[6:-7] + '\r\n'
+    text = text + '【健康运势】' + str(soup.find_all('span')[4])[6:-7] + '\r\n'
+    await session.send(text)

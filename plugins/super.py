@@ -13,12 +13,24 @@ async def reboot(session: CommandSession):
 @on_command('自爆', permission=SUPERUSER)
 async def explosion(session: CommandSession):
     await session.send('啊我死了')
+    await session.send('[CQ:record,file=zibao.amr]')
     exit(0)
 
+@on_command('说', permission=SUPERUSER)
+async def say(session: CommandSession):
+    mes = str(session.state.get('message') or session.current_arg)
+    ans = ""
+    if mes[:5] == '&#91;':
+        ans += '['
+        ans += mes[5:-5]
+        ans += ']'
+    else:
+        ans = mes
+    await session.send(ans)
 
 @on_command('tashikani', permission=SUPERUSER)
 async def tashikani(session: CommandSession):
-    uid = str(session.state.get('message') or session.current_arg)
+    uid = str(session.ctx['user_id'])
     if '1419626179' not in uid:
         return
     await session.send('就是就是！')
@@ -29,6 +41,6 @@ async def _(session: NLPSession):
     return IntentCommand(100.0, 'explosion')
 
 
-@on_natural_language(keywords={'是不是'})
-async def _(session: NLPSession):
-    return IntentCommand(100.0, 'tashikani')
+#@on_natural_language(keywords={'是不是'})
+#async def _(session: NLPSession):
+#    return IntentCommand(100.0, 'tashikani')

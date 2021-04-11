@@ -1,6 +1,8 @@
 from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
 from nonebot.permission import *
+import requests
+import json
 
 AVAILABLE = True
 BLACK_LIST = []
@@ -67,4 +69,39 @@ async def learn(session: CommandSession):
     await session.send('上述内容会交由507审核，通过后507bot就能实装啦！')
     with open('plugins\\learn_log.txt','a') as f:
         f.write(mes+' '+reply+'\n')
-    
+        
+def getNameByUid(mid):
+    res = requests.get('https://api.bilibili.com/x/space/acc/info?mid='+str(mid)+'&jsonp=jsonp')
+    res.encoding = 'utf-8'
+    res = res.text
+    data = json.loads(res)
+    data = data['data']
+    roomid = 0
+    print(data)
+    try:
+        name = data['name']
+    except:
+        pass
+    return name
+
+   
+@on_command('关注')
+async def learn(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    global BLACK_LIST
+    if qqnum in BLACK_LIST:
+        return
+    global AVAILABLE
+    if not AVAILABLE:
+        return
+    await session.send('别关注了，孩子已经d不动了')
+    return
+    mes = str(session.state.get('message') or session.current_arg).split()
+    mes = mes[0]
+    name = getNameByUid(mes)
+    if name=="":
+        await session.send('找不到该用户哦')
+        return
+    with open('plugins\\follow_log.txt','a') as f:
+        f.write(qqnum+' '+mes+' '+name+'\n')
+    await session.send('已经将“'+name+'”添加至关注列表了！')

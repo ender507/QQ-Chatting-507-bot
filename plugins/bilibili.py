@@ -15,12 +15,11 @@ import time
 
 # 用户看这里
 # 你只需要改这里的配置，就可以让你的 Bot 在指定QQ群发送指定 B站UP主 的消息
-# 如下面所示，提供了两个 B站用户的消息推送
-# 第一个用户是 虚拟主播轴伊，她的 B站uid 是 423728837，她的消息会被推送到 950253287,849437495 这两个QQ群
-# 第二个用户是 虚幻引擎官方账号，它的 B站uid 138827797， 它的消息会被推送到 456247757 这个QQ群
-VR_uid_list=[387636363]
-VR_group_list=[[1057501621]]
-VR_name_list=['雫るる_Official']
+VR_uid_list=[387636363,6471011,2802966,171206421,37083032]#,4384421,
+             #31954004,33579222,584430]
+VR_group_list=[[1057501621]for i in range(9)]
+VR_name_list=['雫るる','雾宝','crylins','白神馨','Yasukii','507',
+              'ldh','老油条','fyy']
 
 # 你只需要改这里的配置，就可以让你的 Bot 在指定QQ群发送指定 微博用户 的消息
 wb_uid_list=[]
@@ -45,7 +44,7 @@ async def _():
         live_status = GetLiveStatus(room_id)
         if live_status != '':
             for groupnum in VR_group_list[i]:
-                await bot.send_group_msg(group_id=groupnum, message=VR_name_list[i] +' 开播啦啦啦！！！ ' + live_status)
+                await bot.send_group_msg(group_id=groupnum, message=VR_name_list[i] +' 开播啦！走，当舔狗去了 ' + live_status)
     
     for i in range(min(len(wb_uid_list),len(wb_group_list))):
         wb_content = GetWeibo(wb_uid_list[i], i)
@@ -209,7 +208,7 @@ def GetDynamicStatus(uid, VRindex):
     try:
         cards_data = cards_data['data']['cards']
     except:
-        exit()
+        exit(0)
     #print('Success get')
     try:
         with open(str(uid)+'Dynamic','r') as f:
