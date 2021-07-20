@@ -11,7 +11,6 @@ config['plugins'] = [
 'super',
 'lyric',
 'NLP',
-'baidu'
 'couplet',
 'emoji',
 'record',
@@ -22,13 +21,15 @@ config['plugins'] = [
 'weather',
 'word',
 'replyer',
-'roll'
+'roll',
+'whatAnime',
+'memo',
+'bilibili'
 ]
 # 模块状态
 config['super'] = True
 config['lyric'] = True
 config['NLP'] = True
-config['baidu'] = True
 config['couplet'] = True
 config['emoji'] = True
 config['record'] = True
@@ -40,5 +41,8 @@ config['weather'] = True
 config['word'] = True
 config['replyer'] = True
 config['roll'] = True
+config['whatAnime'] = True
+config['memo'] = True
+config['bilibili'] = True
 
 np.save('config.npy', config)
