@@ -1,4 +1,5 @@
 import nonebot
+from nonebot import on_command, CommandSession
 from aiocqhttp.exceptions import Error as CQHttpError
 from datetime import datetime,date,timedelta
 import random
@@ -6,12 +7,32 @@ import requests
 import json,collections,xml
 from lxml import etree
 import time
+import numpy as np
 
-VR_uid_list=[6471011,387636363,171206421]
-VR_group_list=[[1057501621],[1057501621],[1057501621]]
-VR_name_list=['雾宝','lulu','白神馨']
+VR_uid_list=[6471011,387636363,171206421,77208527,31342460,14106624,4384421]
+VR_group_list=[[1057501621],[1057501621],[1057501621],[1057501621],[1057501621],[1057501621],[928724340]]
+VR_name_list=['雾宝','lulu','白神馨','Akira','母鸡太太','rikka','507']
 
 plugin_name = 'bilibili'
+
+group_name = dict()
+group_name['1057501621'] = 'るるmc群'
+group_name['928724340'] = '507bot测试群'
+
+@on_command('关注列表')
+async def _(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    config = np.load('config.npy',allow_pickle=True).item()
+    if qqnum in config['black_list'] or config[plugin_name] == False:
+        return
+    mes = '当前关注列表如下:\r\n'
+    for i in range(len(VR_name_list)):
+        mes = mes + '【'+ VR_name_list[i] +'】的b站更新会发送到'
+        for each in VR_group_list[i]:
+            mes = mes + '【' + group_name[str(each)] + '】'
+        mes += '\r\n'
+    await session.send(mes)
+
 
 #  每隔一分钟进行一次状态检测
 @nonebot.scheduler.scheduled_job('interval',minutes=1)
@@ -29,12 +50,14 @@ async def _():
                 pass
 
         # 获取直播信息
-        room_id = get_live_room_id(VR_uid_list[i])
+        room_id,room_url = get_live_room_id(VR_uid_list[i])
         live_status = GetLiveStatus(room_id)
         if live_status != '':
             for groupnum in VR_group_list[i]:
                 await bot.send_group_msg(group_id=groupnum,
                                          message=VR_name_list[i] +' 开播啦！直播间标题：' + live_status)
+                await bot.send_group_msg(group_id=groupnum,
+                                         message='直播间地址：'+str(room_url))
 
 # 获取直播间id
 def get_live_room_id(mid):
@@ -46,10 +69,11 @@ def get_live_room_id(mid):
     roomid = 0
     try:
         roomid = data['live_room']['roomid']
+        roomurl = data['live_room']['url']
     except:
         print(mid,'error in get live room id')
         pass
-    return roomid
+    return roomid, roomurl
 
 # 获取b站动态状态
 def GetDynamicStatus(uid, VRindex):

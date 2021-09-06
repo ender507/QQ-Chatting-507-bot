@@ -23,6 +23,8 @@ def replyBreaker(t):
         return False
     return True
 
+
+
 # mes1：全字匹配
 # mes2：部分匹配
 # mes3：过滤器
@@ -72,25 +74,18 @@ mes2['白学']=mes2['和纱']=mes2['北原']=mes2['东马']=mes2['雪菜']=['白
 mes2['去学习']=mes2['学习去']=mes2['自习']=mes2['考试']=mes2['作业']=mes2['上课']=['这就是国家栋梁吧']
 mes1['走']=['当舔狗去了']
 mes1['走，当舔狗去了']=['发错了']
-mes1['laji爬']=['[CQ:image,file=eba8878b25ceee238d0573cf7dfdfc66.image]',
-               '[CQ:image,file=59bc3f42430125462ec6b43e5d65304d.image]',
-               '[CQ:image,file=127289e6641331fb0b47ff9dc83cba76.image]',
-               '[CQ:image,file=12465c7db97145228946b25a59d7ebf0.image]',
-               '[CQ:image,file=f13cfe973df76c8efd14b9870c0c62a5.image]']
-mes1['啊哈']=['[CQ:image,file=b44767caa8d4aa597efc5a9e68648739.image]']
-mes2['沙口']=['[CQ:image,file=022d7c9f652fe08ff327cb0896ac6fe7.image]',
-           '[CQ:image,file=c733da12069ded503549e0cebe6a2fc7.image]',
-           '[CQ:image,file=e499e4ba210706b0d7c5a9143053394b.image]']
-mes1['差不多得了']=['[CQ:image,file=2a0fdd42c0bcd18a6a0464ea82f3ef88.image]',
-           '[CQ:image,file=1818bed4efaf7bec76d0d993530f36ac.image]',
-           '[CQ:image,file=ad09b441861102c1dbc10466c6078813.image]',
-           '[CQ:image,file=eaa32b3877d064bf7768f303fbde92c7.image]',
-           '[CQ:image,file=eaa32b3877d064bf7768f303fbde92c7.image]',
-           '[CQ:image,file=b79dee322280db29020e07d9621388f8.image]',
-           '[CQ:image,file=042551c00347054df1863f163ffbbf89.image]',
-           '[CQ:image,file=c232be760838ded45a508b5be39a1657.image]']
+mes1['laji爬']=['[CQ:image,file=laji爬_0.gif]']
+mes2['沙口']=['[CQ:image,file=沙口_0.jpg]',
+           '[CQ:image,file=沙口_1.jpg]',
+           '[CQ:image,file=沙口_2.jpg]']
+mes1['差不多得了']=['[CQ:image,file=差不多得了_0.gif]',
+           '[CQ:image,file=差不多得了_1.gif]',
+           '[CQ:image,file=差不多得了_0.jpg]',
+           '[CQ:image,file=差不多得了_1.jpg]',
+           '[CQ:image,file=差不多得了_2.jpg]',
+           '[CQ:image,file=差不多得了_3.jpg]']
 mes1['基本信息']=['项目名称：507bot\r\n出生日期：2021.2.24\r\n\
-版本号：v1.0\r\n项目地址：\r\n\
+版本号：v1.2\r\n项目地址：\r\n\
 github地址：https://github.com/ender507/QQ-Chatting-507-bot\r\n\
 gitee地址：https://gitee.com/ender507/QQ-Chatting-507-bot\r\n\
 活跃群聊：2']
@@ -101,111 +96,154 @@ mes1['mua']=['(脸红)']
 mes2['呀，这是火星语吧']=['我翻译得出来！我厉害吧']
 mes2['507爬']=['我不爬，要爬你让laji爬']
 mes2['507bot爬']=['我不爬，要爬你让laji爬']
-mes2['二次元']=['[CQ:image,file=de71b50dda7c599a396580a61a172157.image]',
-           '[CQ:image,file=38d09555fc3b1957f274e8eee3e08b42.image]',
-           '[CQ:image,file=3e61b81bd7b95934d4fd2daf01b1ec73.image]',
-           '[CQ:image,file=0526981a0710a622416b4e40355a64e9.image]',
-           '[CQ:image,file=8b24d6b2e882f8cd876488a65b101475.image]',
-             '']
+mes2['二次元']=['[CQ:image,file=二次元_0.jpg]',
+           '[CQ:image,file=二次元_1.jpg]',
+           '[CQ:image,file=二次元_2.jpg]',
+           '[CQ:image,file=二次元_3.jpg]']
 mes2['二刺猿']=mes2['二刺螈']=mes2['二次猿']=mes2['二次元'][:]
 mes2['发情']=['他不是一直都在发情吗？']
 mes2['里道骸']=mes2['lidaohai']=['里道骸来点○图']
-mes1['来点lly']=['[CQ:image,file=21ea8701cd5397784b88bbc7678ab1cf.image]',
-             '[CQ:image,file=60f46c7e7e7cf55514a2b446707b1190.image]']
-mes2['好耶']=['[CQ:image,file=f2275eb773f4521d8df72937526d980e.image]',
-           '[CQ:image,file=5fd4239c09d03a9b20ab926dc5473adf.image]',
-           '[CQ:image,file=21c8c55ec019c29814745a720f404827.image]',
-           '[CQ:image,file=df646dbbe5d0e2db07d11017fb4e78be.image]']
-mes2['色图']=mes2['涩图']=mes2['渋図']=mes2['ghs']=['[CQ:image,file=1f9f3c6a2d137a55b69e120d59cf56a8.image]',
-           '[CQ:image,file=a175367a819da572887e6ae198b9e26e.image]',
-           '[CQ:image,file=bc89f2ff230b116e4b2b36222436b889.image]']
+mes2['好耶']=['[CQ:image,file=好耶_0.jpg]',
+           '[CQ:image,file=好耶_1.jpg]',
+           '[CQ:image,file=好耶_2.jpg]']
+mes2['色图']=mes2['涩图']=mes2['渋図']=mes2['ghs']=['[CQ:image,file=涩图_0.jpg]',
+           '[CQ:image,file=涩图_0.png]',
+           '[CQ:image,file=涩图_1.png]']
 mes3.append("不许ghs！（半恼）")
 mes3.append("雾宝来啦")
+mes3.append("来点二次元")
 mes2['学不完']=['已经是国家栋梁了']
-mes1['来点油条']=mes1['来点老油条']=['[CQ:image,file=ecf9738224c8e25f319a9b85ac4613ca.image]',
-           '[CQ:image,file=e50acb3582b4c8c57e5b096662725d00.image]',
-           '[CQ:image,file=1900fc2b6eefbe9175f68e74a0498da9.image]',
-           '[CQ:image,file=3d1a1b75ad119f7f47032077c31026a6.image]',
-            '[CQ:image,file=be2ffc3a403bf985714dc3a6bc3195b0.image]',
-            '[CQ:image,file=bad2f6e3c0b79d3c6e5e92ac256c334e.image]',
-            '[CQ:image,file=d71e1c83604b5f4221839525789d13e1.image]']
-mes1['来点柚子']=mes1['来点yozuki']=['[CQ:image,file=aeee125d0cb170346b0584e4e57f6e06.image]',
-           '[CQ:image,file=5ec7eea91e1fd1d13dc26e7586667ef1.image]',
-           '[CQ:image,file=df57ecf1d20d4880aa85215ca0a7e9b8.image]',
-           '[CQ:image,file=645e6df1564fec46daf536801434990d.image]',
-            '[CQ:image,file=61ced67febb41dbe55da099ba70a2d58.image]',
-            '[CQ:image,file=b08904b23d21ae70eda675007f79b76f.image]',
-            '[CQ:image,file=0b5618891e137ead98bd071db5350aef.image]',
-            '[CQ:image,file=979c39e6e1235201a09beadded6b0978.image]',
-            '[CQ:image,file=6e17aa908a42db523c4b2edc08c72522.image]']
-mes1['来点红炎']=mes1['来点炎子哥']=['[CQ:image,file=a0f818ba85eb523c5e537b490224112d.image]',
-                            '[CQ:image,file=de7376611c199da2e8a38c006465e1bb.image]',
-                            '[CQ:image,file=4999fc8e743681d89c6143c47a65bade.image]']
-mes1['来点crylins']=mes1['来点cryl1ns']=mes1['来点cry']=['[CQ:image,file=6e006bcdcad3e1d41a913882c11c43ac.image]',
- '[CQ:image,file=78a27dab046095f69be8cd52107b6839.image]',
- '[CQ:image,file=17c74ada500505168d02d30a411fac9c.image]',
-'[CQ:image,file=b17cac47480f4f80e2b4bf20103a4e30.image]']
-mes1['来点507']=['[CQ:image,file=bac9be5aaa59bb7e2e29fde1597c7231.image]',
-           '[CQ:image,file=645e6df1564fec46daf536801434990d.image]',
-               '[CQ:image,file=7f330cd493ca8801d949076f0bd0fc91.image]',
-               '[CQ:image,file=41b7e135e6421299490e0ed574698aaf.image]',
-               '[CQ:image,file=068f8638ed1513a49ffbf0ab35fae935.image]']
-mes1['来点rikka']=['[CQ:image,file=b1b5cbb6bd317e89d1abbab9b3f4a330.image]',
-                 '[CQ:image,file=8469e90cf15b2ef5057df46e50d7b47b.image]',
-                 '[CQ:image,file=4f00bc1e50b5cfceb63ec2c3fafb892e.image]',
-                 '[CQ:image,file=c85c7ab904857a4f10490c40fd47daf2.image]',
-                 '[CQ:image,file=34a3a85f562345fd13e1ae35cdf6df4c.image]']
-mes1['来点雾宝']=mes1['来点雾妹']=['[CQ:image,file=fdf285102fd20d06d47cd5f1298c36e9.image]',
-                           '[CQ:image,file=50ffabd0f461b1fb156b3344f1e1afcf.image]']
-mes1['来点鸭子']=mes1['来点鸭子哥']=['[CQ:image,file=8894332504c45648e585ed175b11ebee.image]',
-                            '[CQ:image,file=26e146bdc56279fc6de20cb518d0fd67.image]']
-mes1['来点laji']=mes1['来点垃圾']=['[CQ:image,file=efb02f943c0387c6103f4b0d1a9d5053.image]',
-           '[CQ:image,file=6f6f6bf83f8d729e1ceb16ddbe9c9b07.image]',
-           '[CQ:image,file=78590e0a6969a1cbd3a32d9e5dc729dd.image]',
-           '[CQ:image,file=8acc1a6e78df6df45642a39e53d8b3b7.image]',
-           '[CQ:image,file=7f9f0fd41115a2802bbc65488554bb8b.image]',
-            '[CQ:image,file=40f32c3a10d1a467cdb7a9a5a80d3c74.image]']
-mes1['来点馨妹']=mes1['来点白神馨']=['[CQ:image,file=78590e0a6969a1cbd3a32d9e5dc729dd.image]',
-           '[CQ:image,file=ddf16954f4f3c680776a59fe86e5e5fc.image]',
-                            '[CQ:image,file=29617c66e8b8e051bff5b8b68a6872e0.image]',
-                            '[CQ:image,file=3f822706576691ec2b6bf49c03146619.image]']
+
+mes2['嘉然']=mes2['然然']=['[CQ:image,file=嘉然_0.gif]',
+                       '[CQ:image,file=嘉然_0.jpg]',
+                       '[CQ:image,file=嘉然_1.jpg]',
+                       '[CQ:image,file=嘉然_2.jpg]',
+                       '[CQ:image,file=嘉然_3.jpg]']
+mes2['三点']=['[CQ:image,file=三点_0.jpg]',
+            '[CQ:image,file=三点_1.jpg]']
+mes2['审核']=['[CQ:image,file=审核_0.png]']
+mes2['罕见']=['[CQ:image,file=罕见_0.png]',
+            '[CQ:image,file=罕见_0.jpg]']
+mes2['今天吃啥']=['吃屁']
+
+
+#######################来点系列
+mes1['来点lly']=['[CQ:image,file=来点lly_0.png]',
+    '[CQ:image,file=来点lly_0.jpg]',
+    '[CQ:image,file=来点lly_1.jpg]']
+mes1['来点油条']=mes1['来点老油条']=mes1['来点油批']=['[CQ:record,file=7F3629710CC82651FDF273EF9599E4A6.amr]',
+            '[CQ:record,file=5301B240C5DB94873BB66B0B227B688E.amr]',
+            '[CQ:record,file=962B686EF9AE2EB0C1EE60B6EA3635B4.amr]',
+            '[CQ:image,file=来点油条_0.jpg]',
+            '[CQ:image,file=来点油条_1.jpg]',
+            '[CQ:image,file=来点油条_2.jpg]',
+            '[CQ:image,file=来点油条_3.jpg]',
+            '[CQ:image,file=来点油条_4.jpg]',
+            '[CQ:image,file=来点油条_0.png]',
+            '[CQ:image,file=来点油条_1.png]',
+            '[CQ:image,file=来点油条_2.png]',
+            '[CQ:image,file=来点油条_3.png]',
+            '[CQ:image,file=来点油条_4.png]',
+            '[CQ:image,file=来点油条_5.png]',
+            '[CQ:image,file=来点油条_6.png]',
+            '[CQ:image,file=来点油条_7.png]',
+            '[CQ:image,file=来点油条_8.png]',
+            '[CQ:image,file=来点油条_9.png]',
+            '[CQ:image,file=来点油条_10.png]',
+            '[CQ:image,file=来点油条_11.png]',
+            '[CQ:image,file=来点油条_12.png]',
+            '[CQ:image,file=来点油条_13.png]',
+            '[CQ:image,file=来点油条_14.png]',
+            '[CQ:image,file=来点油条_15.png]',
+            '[CQ:image,file=来点油条_16.png]']
+mes1['来点柚子']=mes1['来点yozuki']=['[CQ:image,file=来点柚子_0.png]',
+           '[CQ:image,file=来点柚子_1.png]',
+           '[CQ:image,file=来点柚子_2.png]',
+           '[CQ:image,file=来点柚子_3.png]',
+           '[CQ:image,file=来点柚子_4.png]',
+           '[CQ:image,file=来点柚子_5.png]',
+           '[CQ:image,file=来点柚子_0.jpg]',
+           '[CQ:image,file=来点柚子_1.jpg]',
+           '[CQ:image,file=来点柚子_2.jpg]',
+           '[CQ:image,file=来点柚子_3.jpg]',
+           '[CQ:image,file=来点柚子_4.jpg]',
+           '[CQ:image,file=来点柚子_5.jpg]',
+           '[CQ:image,file=来点柚子_6.jpg]']
+mes1['来点红炎']=mes1['来点炎子哥']=['[CQ:image,file=来点红炎_0.jpg]',
+                            '[CQ:image,file=来点红炎_0.png]',
+                            '[CQ:image,file=来点红炎_1.png]',
+                            '[CQ:image,file=来点红炎_2.png]']
+mes1['来点crylins']=mes1['来点cryl1ns']=mes1['来点cry']=['[CQ:image,file=来点cry_0.jpg]',
+            '[CQ:image,file=来点cry_0.png]',
+            '[CQ:image,file=来点cry_1.png]']
+mes1['来点507']=mes1['来点507bot']=['[CQ:image,file=来点507_0.jpg]',
+            '[CQ:image,file=来点507_0.png]',
+            '[CQ:image,file=来点507_1.png]']
+mes1['来点rikka']=['[CQ:image,file=来点rikka_0.jpg]',
+                 '[CQ:image,file=来点rikka_0.png]']
+mes1['来点雾宝']=mes1['来点雾妹']=['[CQ:image,file=来点雾妹_0.png]',
+            '[CQ:image,file=来点雾妹_1.png]',
+            '[CQ:image,file=来点雾妹_2.png]']
+mes1['来点鸭子']=mes1['来点鸭子哥']=['[CQ:image,file=来点鸭子哥_0.jpg]']
+mes1['来点laji']=mes1['来点垃圾']=['[CQ:image,file=来点laji_0.jpg]',
+            '[CQ:image,file=来点laji_1.jpg]',
+            '[CQ:image,file=来点laji_2.jpg]',
+            '[CQ:image,file=来点laji_0.png]',
+            '[CQ:image,file=来点laji_1.png]',
+            '[CQ:image,file=来点laji_2.png]',
+            '[CQ:image,file=来点laji_3.png]',
+            '[CQ:image,file=来点laji_4.png]',
+            '[CQ:image,file=来点laji_5.png]',
+            '[CQ:image,file=来点laji_6.png]']
+mes1['来点馨妹']=mes1['来点白神馨']=mes1['来点狐狸']=['[CQ:image,file=来点白神馨_0.jpg]',
+           '[CQ:image,file=来点白神馨_0.png]',
+            '[CQ:image,file=来点白神馨_1.png]',
+            '[CQ:image,file=来点白神馨_2.png]']
 mes1['来点母鸡']=mes1['来点母狗']=mes1['来点母鸡太太']=mes1['来点母狗太太']=[
-'[CQ:image,file=72f33262b1e1383286f7f829adf18418.image]',
-'[CQ:image,file=ba03b01b4d50a7f5d1dc77020ca2d407.image]',
-'[CQ:image,file=17c74ada500505168d02d30a411fac9c.image]']
-mes1['来点盒子']=mes1['来点hezzi']=mes1['来点HezZi']=['[CQ:image,file=c86452dabcc7d736576839ac8eb7a045.image]',
-                                '[CQ:image,file=bd687e790933b04b759b2b1fbc327480.image]']
-mes2['嘉然']=mes2['然然']=['[CQ:image,file=0663139220cb104eb7b36182ffd0a74a.image]',
-                       '[CQ:image,file=75e5ae9906a7f82cb2fc3ff8794634f4.image]',
-                       '[CQ:image,file=7a41cc36cd61ba4bc2cd1c60d308a2b6.image]',
-                       '[CQ:image,file=5007ab1ebf0e866cf308acae86e812a6.image]',
-                       '[CQ:image,file=b050bfa2eae63bf3d4e76cb566a8e454.image]',
-                       '[CQ:image,file=c87684a7950b52d6e94aed397dea502c.image]']
-mes1['来点CL']=mes1['来点cl']=['[CQ:image,file=c5758c577a3837ff8b8ea06739b09528.image]']
-mes1['来点yasuki']=['[CQ:image,file=e88bc0d070b361f5502a122b4c33eb02.image]',
-                  '[CQ:image,file=119b2d5bdef9d98722bd06051d94ca0b.image]']
-mes1['来点akira']=['[CQ:image,file=38e41e0afb0f5bc19e78dbf5c6bcbde4.image]']
-mes1['来点wx']=['[CQ:image,file=126de23e7368f8776a9348d9eaf315c5.image]']
-mes1['来点莲宝']=['[CQ:image,file=e8fb35be162b0a6f25f312dbaf5d9d60.image]',
-              '[CQ:image,file=a721ba862faa1b1836c3ea8e98ad87ec.image]']
-mes1['来点mana']=['[CQ:image,file=39d55a18adb3a8296376edbae045e744.image]']
-mes1['来点疫苗']=['[CQ:image,file=0db70e727eb9b5f05982f7a320f0d5f0.image]']
-mes1['来点as']=['[CQ:image,file=543ebeec0aff30f2d3d0a9f40fe8a917.image]']
-mes1['来点吴京']=['[CQ:image,file=7df5bbf912ca9c3b4443c27dd4f16a46.image]',
-              '[CQ:image,file=12427d236cc6c90e012224624232fa3d.image]']
-mes1['来点阿喵喵']=['[CQ:image,file=58ac5da441ae78445763895a165b39f0.image]',
-               '[CQ:image,file=8a865a8246ce8ad3e3af5c5fbe197b13.image]']
-mes2['三点']=['[CQ:image,file=4ff600edab13efb8070e3a2f87b873b9.image]',
-            '[CQ:image,file=ee6a2e5727065aeff35e4c96d5153d48.image]']
-mes1['来点黄金船']=['[CQ:image,file=dd633e108918c721939b7a5280b2f1cc.image]']
-mes2['审核']=['[CQ:image,file=bd5080b2b0087d7146ff7617a0fbde46.image]']
-mes1['来点小舞']=['[CQ:image,file=8814e7ab87911820613b7cb2a044ef4c.image]',
-              ' [CQ:image,file=85fe02d402f75fcdada6ed1c3b080ccd.image]']
-mes1['来点谢拉']=['[CQ:image,file=6f956c8641c85b9f7eca7aa35da32c31.image]',
-              '[CQ:image,file=f6067abbf685c008f8a8ffefeafc16b2.image]']
-mes1['来点hentai']=['[CQ:image,file=a90b2a0c3fdd580d89a2f9e71ff6a375.image]',
-                  '[CQ:image,file=0781d404926a30046bc1cc0fc6dc6a1c.image]']
-mes1['来点加菲猫']=['[CQ:image,file=c76423016d3129deffcfdea417a8cb0f.image]']
+            '[CQ:image,file=来点母鸡_0.png]']
+mes1['来点CL']=mes1['来点cl']=['[CQ:image,file=来点cl_0.jpg]',
+            '[CQ:image,file=来点cl_0.png]',
+            '[CQ:image,file=来点cl_1.png]',
+            '[CQ:image,file=来点cl_2.png]',
+            '[CQ:image,file=来点cl_3.png]']
+mes1['来点akira']=['[CQ:image,file=来点akira_0.png]']
+mes1['来点wx']=['[CQ:image,file=来点wx_0.jpg]',
+              '[CQ:image,file=来点wx_0.png]']
+mes1['来点mana']=['[CQ:image,file=来点mana_0.jpg]',
+            '[CQ:image,file=来点mana_0.png]']
+mes1['来点疫苗']=['[CQ:image,file=来点疫苗_0.jpg]']
+mes1['来点as']=['[CQ:image,file=来点as_0.jpg]']
+mes1['来点吴京']=['[CQ:image,file=来点吴京_0.jpg]',
+              '[CQ:image,file=来点吴京_1.jpg]',
+              '[CQ:image,file=来点吴京_2.jpg]']
+mes1['来点阿喵喵']=['[CQ:image,file=来点阿喵喵_0.jpg]',
+               '[CQ:image,file=来点阿喵喵_1.jpg]']
+mes1['来点莲宝']=['[CQ:image,file=来点莲宝_0.png]']
+mes1['来点ldh']=mes1['来点里道骸']=['[CQ:image,file=来点ldh_0.jpg]',
+        '[CQ:image,file=来点ldh_0.png]']
+mes1['来点高质量男性']=['[CQ:image,file=来点高质量男性_0.jpg]']
+mes1['来点海豹']=['[CQ:image,file=来点海豹_0.gif]']
+mes1['来点猫猫']=['[CQ:image,file=来点猫猫_0.jpg]']
+mes1['来点猫诺']=['[CQ:image,file=来点猫诺_0.jpg]']
+mes1['来点Bebe']=mes1['来点bebe']=['[CQ:image,file=来点bebe_0.png']
+mes1['来点银河']=mes1['来点李银河']=['[CQ:image,file=来点银河_0.png]',
+    '[CQ:image,file=来点银河_1.png]',
+    '[CQ:image,file=来点银河_2.png]']
+mes1['来点hentai']=['[CQ:image,file=来点hentai_0.jpg]',
+                  '[CQ:image,file=来点hentai_0.png]',
+                  '[CQ:image,file=来点hentai_1.png]',
+                  '[CQ:image,file=来点hentai_2.png]',
+                  '[CQ:image,file=来点hentai_3.png]',
+                  '[CQ:image,file=来点hentai_4.png]']
+mes1['来点加菲猫']=mes1['来点北原春希']=['[CQ:image,file=来点加菲猫_0.jpg]',
+            '[CQ:image,file=来点加菲猫_1.jpg]',
+            '[CQ:image,file=来点加菲猫_2.jpg]',
+            '[CQ:image,file=来点加菲猫_3.jpg]',
+            '[CQ:image,file=来点加菲猫_0.png]']
+mes1['来点fyy']=mes1['来点ふゆゆ']=['[CQ:record,file=99B6F73DDCB39D13A973CAA8413C7570.amr]',
+                                '[CQ:record,file=C352DA508B79C93886B52E366D5EED82.amr]',
+                                '[CQ:image,file=来点fyy_0.jpg]',
+                                '[CQ:image,file=来点fyy_0.png]']
 
 
 mes=""
@@ -307,3 +345,73 @@ async def _(session: NLPSession):
 @on_natural_language(keywords={'说话啊'})
 async def _(session: NLPSession):
     return IntentCommand(100.0, 'saysomething')
+
+
+@on_command('来点来点')
+async def _(session: CommandSession):
+    qqnum=str(session.ctx['user_id'])
+    config = np.load('config.npy',allow_pickle=True).item()
+    if qqnum in config['black_list'] or config[plugin_name] == False:
+        return
+    global mes1
+    from plugins.record import record_list
+    mes = "使用指令【来点 xxx n】可以查看【来点xxx】的第n个内容（从0开始计数）\r\n\
+来点指令统计:\r\n"
+    last = None
+    for each in mes1.keys():
+        if '来点' in each:
+            if last == mes1[each] or last == None:
+                last = mes1[each]
+                mes = mes + '【' + str(each) + '】'
+                continue
+            mes = mes + str(len(last)) + '条\r\n'
+            mes = mes + '【' + str(each) + '】'
+            last = mes1[each]
+    mes = mes + str(len(last)) + '条\r\n'
+    last = None
+    for each in record_list.keys():
+        if '来点' in each:
+            if last == record_list[each] or last == None:
+                last = record_list[each]
+                mes = mes + '【' + str(each) + '】'
+                continue
+            mes = mes + str(len(last)) + '条\r\n'
+            mes = mes + '【' + str(each) + '】'
+            last = record_list[each]
+    mes = mes + str(len(last)) + '条\r\n'
+    await session.send(mes[:-2])
+    
+@on_command('来点')
+async def say(session: CommandSession):
+    mes = str(session.state.get('message') or session.current_arg).split()
+    k = '来点' + mes[0]
+    if k not in mes1.keys():
+        await session.send('没有【'+k+'】这个条目哦')
+        return
+    try:
+        num = int(mes[1])
+    except:
+        await session.send('请输入正确的数字!如:【来点 鬼叫 2】')
+    if num >= len(mes1[k]):
+        await session.send('【'+k+'】的有效范围为0到'+str(len(mes1[k])-1))
+        return
+    await session.send(mes1[k][num])
+
+###----------------debug
+@on_command('全部1', permission=SUPERUSER)
+async def say(session: CommandSession):
+    mes = str(session.state.get('message') or session.current_arg)  
+    for each in mes1.keys():
+        if each == mes:
+            for i in mes1[each]:
+                await session.send(i)
+            return
+
+@on_command('全部2', permission=SUPERUSER)
+async def say(session: CommandSession):
+    mes = str(session.state.get('message') or session.current_arg)  
+    for each in mes2.keys():
+        if each == mes:
+            for i in mes2[each]:
+                await session.send(i)
+            return

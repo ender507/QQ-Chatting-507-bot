@@ -36,7 +36,6 @@ record_list['来点鬼歌']=['[CQ:record,file=g1.amr]',
                      '[CQ:record,file=g8.amr]',
                      '[CQ:record,file=g9.amr]',
                      '[CQ:record,file=g10.amr]',
-                     
                      '[CQ:record,file=kichiku1.amr]','[CQ:record,file=kichiku1.amr]','[CQ:record,file=kichiku1.amr]','[CQ:record,file=kichiku1.amr]','[CQ:record,file=kichiku1.amr]']
 record_list['来点怪歌']=record_list['来点鬼歌'][:]
 record_list['怎么办']=['[CQ:record,file=zenmeban1.amr]',
@@ -50,10 +49,6 @@ record_list['这波']=['[CQ:record,file=zhebo.amr]']
 record_list['急了']=['[CQ:record,file=jile.amr]']
 record_list['爬']=record_list['爪巴']=['[CQ:record,file=pa.amr]','']
 record_list['又开始了']=['[CQ:record,file=youkaishile.amr]']
-record_list['来点fyy']=record_list['来点ふゆゆ']=['[CQ:record,file=99B6F73DDCB39D13A973CAA8413C7570.amr]',
-                                '[CQ:image,file=8aa59e934373d675aeb6a2078650c21a.image]',
-                                '[CQ:record,file=C352DA508B79C93886B52E366D5EED82.amr]',
-                                '[CQ:image,file=f85831bf990406e8658fb17159c0abd2.image]']
 record_list['不会吧']=['[CQ:record,file=2C05BA6DD1B03D83FB257BE8B17E1BC0.amr]']
 record_list['摩多']=record_list['もっと']=['[CQ:record,file=A7155B7D3A4B819A2ABCA35526F34510.amr]']
 
